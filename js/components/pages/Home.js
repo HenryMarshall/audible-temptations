@@ -1,12 +1,17 @@
 import React from 'react';
+import { OAUTH_REQUEST } from '../../constants/AppConstants';
 
 import RaisedButton from 'material-ui/lib/raised-button';
 
 const Home = () => (
   <div>
-    <h1>Audible Temptations</h1>
-    <span>Hold your next novel hostage at the gym</span>
-    <RaisedButton label="Primary">Login with Amazon</RaisedButton>
+    <p>Hold your next novel hostage at the gym</p>
+    <RaisedButton
+      label="Login with Amazon" 
+      primary={true}
+      linkButton={true}
+      href={OAUTH_REQUEST}
+    />
   </div>
 )
 
