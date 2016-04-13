@@ -1,5 +1,5 @@
 {
-  "name": "audible temptations",
+  "name": "audible-temptations",
   "version": "2.4.0",
   "description": "A geo-fenced temptation bundling Audible app built with React ",
   "dependencies": {

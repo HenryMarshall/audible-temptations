@@ -1,0 +1,27 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/henry/.nvm/versions/node/v5.10.1/bin/node',
+1 verbose cli   '/home/henry/.nvm/versions/node/v5.10.1/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'start' ]
+2 info using npm@3.8.3
+3 info using node@v5.10.1
+4 verbose stack Error: Invalid name: "audible temptations"
+4 verbose stack     at ensureValidName (/home/henry/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:336:15)
+4 verbose stack     at Object.module.exports.fixNameField (/home/henry/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:215:5)
+4 verbose stack     at /home/henry/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js:32:38
+4 verbose stack     at Array.forEach (native)
+4 verbose stack     at normalize (/home/henry/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js:31:15)
+4 verbose stack     at final (/home/henry/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:338:5)
+4 verbose stack     at then (/home/henry/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:113:5)
+4 verbose stack     at /home/henry/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:300:12
+4 verbose stack     at /home/henry/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+4 verbose stack     at tryToString (fs.js:414:3)
+5 verbose cwd /home/henry/proj/audible-temptations
+6 error Linux 4.2.0-16-generic
+7 error argv "/home/henry/.nvm/versions/node/v5.10.1/bin/node" "/home/henry/.nvm/versions/node/v5.10.1/bin/npm" "run" "start"
+8 error node v5.10.1
+9 error npm  v3.8.3
+10 error Invalid name: "audible temptations"
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
