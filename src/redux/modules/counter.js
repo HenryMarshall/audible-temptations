@@ -7,11 +7,12 @@ export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
 // ------------------------------------
 // Actions
 // ------------------------------------
-// NOTE: "Action" is a Flow interface defined in https://github.com/TechnologyAdvice/flow-interfaces
-// If you're unfamiliar with Flow, you are completely welcome to avoid annotating your code, but
-// if you'd like to learn more you can check out: flowtype.org.
-// DOUBLE NOTE: there is currently a bug with babel-eslint where a `space-infix-ops` error is
-// incorrectly thrown when using arrow functions, hence the oddity.
+// NOTE: "Action" is a Flow interface defined in
+// https://github.com/TechnologyAdvice/flow-interfaces If you're unfamiliar
+// with Flow, you are completely welcome to avoid annotating your code, but if
+// you'd like to learn more you can check out: flowtype.org.  DOUBLE NOTE:
+// there is currently a bug with babel-eslint where a `space-infix-ops` error
+// is incorrectly thrown when using arrow functions, hence the oddity.
 export function increment (value: number = 1): Action {
   return {
     type: COUNTER_INCREMENT,

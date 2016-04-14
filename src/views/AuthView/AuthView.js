@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+
+import { actions } from '../../redux/modules/Auth';
 
 type Props = {
 
@@ -14,8 +17,7 @@ export class Auth extends React.Component {
     const accessTokenRegex = /access_token=([^&]*)/;
     const accessToken = this.extractPsuedoParam(accessTokenRegex);
     if (accessToken) {
-      console.log("accessToken: ", accessToken);
-      // recordAccessToken(accessToken);
+      this.props.saveToken(accessToken);
     }
     else {
       this.handleErrorInAuth();
@@ -45,4 +47,10 @@ export class Auth extends React.Component {
   }
 }
 
-export default Auth
+const mapDispatchToProps = (dispatch) => ({
+  saveToken: (accessToken) => {
+    dispatch(actions.saveAudibleAccessToken(accessToken));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(Auth);
