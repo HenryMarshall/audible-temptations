@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
-import { recordAccessToken } from '../../actions';
+import actions from '../../actions';
+const { recordAccessToken } = actions
 
 class Auth extends Component {
   componentDidMount() {
+    this.handleAmazonAuthResponse();
   }
 
+  handleAmazonAuthResponse() {
+    // Params are URI fragment following a hash, *not* real query params.
+    const psuedoParams = this.props.location.hash || "";
+    const regex = /access_token=([^&]*)/;
+    const matches = psuedoParams.match(regex);
+    if (matches) {
+      const accessToken = matches[1];
+      recordAccessToken(accessToken);
+    }
+    else {
+      this.handleErrorInAuth(psuedoParams);
+    }
+  }
+
+  handleErrorInAuth(psuedoParams) {
+    const regex = /error=([^&]*)/;
+    const matches = psuedoParams.match(regex);
+    const message = (matches) 
+      ? matches[1] 
+      : "acces_token not in uri";
+    console.error(message);
+
+    // TODO: Handle error
+  }
   
 
   render() {
-    // Params are URI fragment following a hash, *not* real query params.
-    const psuedoParams = this.props.location.hash;
-    const accessTokenRegex = /access_token=([^&]*)/;
-    const accessToken = psuedoParams.match(accessTokenRegex)[1];
-    //recordAccessToken(accessToken);
-    console.log(accessToken);
 
     return (
       <h1>Authorized!</h1>

@@ -1,9 +1,8 @@
 
-const authActions = {
+const auth = {
   recordAccessToken(accessToken) {
-    debugger;
-    console.log(accessToken);
+    console.log("in recordAccessToken actions");
   }
 }
 
-export default authActions;
+export default auth;
