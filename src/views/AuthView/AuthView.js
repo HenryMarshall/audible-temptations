@@ -18,6 +18,7 @@ export class Auth extends React.Component {
     const accessToken = this.extractPsuedoParam(accessTokenRegex);
     if (accessToken) {
       this.props.saveToken(accessToken);
+      this.props.history.push('/filterLibrary');
     }
     else {
       this.handleErrorInAuth();
@@ -42,7 +43,7 @@ export class Auth extends React.Component {
 
   render() {
     return (
-      <h1>Authorized!</h1>
+      <h1>Auth Failed!</h1>
     )
   }
 }
