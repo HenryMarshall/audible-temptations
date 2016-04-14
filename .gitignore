@@ -1,7 +1,9 @@
-*.swp
-node_modules/
-js/bundle.js
-js/bundle.min.js
-build
-npm-debug.log
+.DS_STORE
+*.log
 
+node_modules
+
+dist
+coverage
+
+*.swp

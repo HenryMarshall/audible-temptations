@@ -1,9 +1,22 @@
+sudo: false
 language: node_js
 node_js:
-  - "5"
-  - "4"
-  - "0.10"
-script: npm run build
-notifications:
-  email:
-    on_failure: change
+  - "5.0"
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+script:
+  - npm run lint
+  - npm run flow:check
+  - npm run test
+  - NODE_ENV=development npm run deploy
+  - NODE_ENV=staging npm run deploy
+  - NODE_ENV=production npm run deploy
+
+after_success:
+  - npm run codecov

@@ -1,0 +1,12 @@
+# Check it out: http://humanstxt.org/
+
+# TEAM
+
+  Henry Baughman -- developer -- hbaughman
+  Max Corbin -- developer
+  Carrie Tsang -- designer
+  Marcelo Mejia Cobo -- designer
+
+# THANKS
+
+  Amy Chen and Audible for organizing the Hackathon
