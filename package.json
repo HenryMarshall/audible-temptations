@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-starter-kit",
+  "name": "audible-temptations",
   "version": "2.0.0-alpha.4",
-  "description": "Get started with React, Redux, and React-Router!",
+  "description": "A geo-fenced temptation bundling Audible app built with React",
   "main": "index.js",
   "engines": {
     "node": ">=4.2.0",
@@ -76,7 +76,7 @@
     "type": "git",
     "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "Henry Baughman",
   "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.5.1",
