@@ -33,6 +33,12 @@ import thunk from 'redux-thunk';
 import FontFaceObserver from 'fontfaceobserver';
 import createHistory from 'history/lib/createBrowserHistory';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
 // Observer loading of Open Sans (to remove open sans, remove the <link> tag in the index.html file and this observer)
 const openSansObserver = new FontFaceObserver('Open Sans', {});
 
@@ -44,10 +50,12 @@ openSansObserver.check().then(() => {
 });
 
 // Import the pages
-import HomePage from './components/pages/HomePage.react';
+import App from './components/App.react';
+import Home from './components/pages/Home';
+import Auth from './components/pages/Auth';
+
 import ReadmePage from './components/pages/ReadmePage.react';
 import NotFoundPage from './components/pages/NotFound.react';
-import App from './components/App.react';
 
 // Import the CSS file, which HtmlWebpackPlugin transfers to the build folder
 import '../css/main.css';
@@ -72,7 +80,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={createHistory()}>
       <Route component={App}>
-        <Route path="/" component={HomePage} />
+        <Route path="/" component={Home} />
+        <Route path="auth" component={Auth} />
+
         <Route path="/readme" component={ReadmePage} />
         <Route path="*" component={NotFoundPage} />
       </Route>
