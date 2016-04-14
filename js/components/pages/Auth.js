@@ -8,28 +8,29 @@ class Auth extends Component {
   }
 
   handleAmazonAuthResponse() {
-    // Params are URI fragment following a hash, *not* real query params.
-    const psuedoParams = this.props.location.hash || "";
-    const regex = /access_token=([^&]*)/;
-    const matches = psuedoParams.match(regex);
-    if (matches) {
-      const accessToken = matches[1];
+    const accessTokenRegex = /access_token=([^&]*)/;
+    const accessToken = this.extractPsuedoParam(accessTokenRegex);
+    if (accessToken) {
       recordAccessToken(accessToken);
     }
     else {
-      this.handleErrorInAuth(psuedoParams);
+      this.handleErrorInAuth();
     }
   }
 
   handleErrorInAuth(psuedoParams) {
     const regex = /error=([^&]*)/;
-    const matches = psuedoParams.match(regex);
-    const message = (matches) 
-      ? matches[1] 
-      : "acces_token not in uri";
+    const message = this.extractPsuedoParam(regex) || "access_token not in URI";
     console.error(message);
 
     // TODO: Handle error
+  }
+
+  extractPsuedoParam(regex) {
+    // Params are URI fragment following a hash, *not* real query params.
+    const psuedoParams = this.props.location.hash || "";
+    const matches = psuedoParams.match(regex);
+    return (matches) ? matches[1] : null;
   }
   
 
