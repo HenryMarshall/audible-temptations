@@ -2,8 +2,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+  Henry Baughman -- developer -- hbaughman
+  Max Corbin -- developer
+  Carrie Tsang -- designer
+  Marcelo Mejia Cobo -- designer
 
 # THANKS
 
-    <name>
+  Amy Chen and Audible for organizing the Hackathon
