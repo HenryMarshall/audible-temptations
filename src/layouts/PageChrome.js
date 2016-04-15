@@ -42,12 +42,8 @@ class PageChrome extends React.Component {
             <MenuItem onTouchTap={this.handleClose} primaryText="Choose Gym" />
           </Link>
           
-          <Link to="/blackmail" style={styles.link} >
-            <MenuItem onTouchTap={this.handleClose} primaryText="Manage Restrictions" />
-          </Link>
-
           <Link to="/recommendations" style={styles.link} >
-            <MenuItem onTouchTap={this.handleClose} primaryText="Book Recommendations" />
+            <MenuItem onTouchTap={this.handleClose} primaryText="Recommendations" />
           </Link>
         </LeftNav>
       </div>
