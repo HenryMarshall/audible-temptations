@@ -9,12 +9,22 @@ import { Route, IndexRoute } from 'react-router'
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 import HomeView from 'views/HomeView/HomeView'
 import Auth from 'views/AuthView/';
+import ManageLocations from 'views/ManageLocationsView';
+import Blackmail from 'views/BlackmailView';
 import FilterLibrary from 'views/FilterLibraryView';
+import Library from 'views/LibraryView';
 
 export default (store) => (
   <Route path='/' component={CoreLayout}>
-    <IndexRoute component={HomeView} />
+    <IndexRoute component={Library} />
     <Route path='/auth' component={Auth} />
+    <Route path='/manageLocations' component={ManageLocations} />
+    <Route path='/blackmail' component={Blackmail} />
     <Route path='/filterLibrary' component={FilterLibrary} />
+
+    <Route path='/intro'>
+      <IndexRoute component={HomeView} />
+
+    </Route>
   </Route>
 )
