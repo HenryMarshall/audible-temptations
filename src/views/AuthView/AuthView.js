@@ -15,9 +15,11 @@ export class Auth extends React.Component {
 
   handleAmazonAuthResponse() {
     const accessTokenRegex = /access_token=([^&]*)/;
-    const accessToken = this.extractPsuedoParam(accessTokenRegex);
+    let accessToken = this.extractPsuedoParam(accessTokenRegex);
     if (accessToken) {
+      accessToken = decodeURIComponent(accessToken);
       this.props.saveToken(accessToken);
+      console.log("accessToken: ", accessToken);
       this.props.history.push('/filterLibrary');
     }
     else {
