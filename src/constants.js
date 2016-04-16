@@ -16,6 +16,39 @@ export const OAUTH_REQUEST = "https://www.amazon.com/ap/oa"
 export const AUDIBLE_RECOMMENDATIONS_URL = 
   "https://api.audible.com/1.0/recommendations?response_groups=product_desc&num_results=5"
 
+export const GYMS = [
+  {
+    name : "19th Street Gym",
+    distance : "25 ft",
+    location : "W 19th Street, New York NY 10010",
+    join_agreement : true
+  },
+  {
+    name : "David Barton Gym",
+    distance : "2.5 miles",
+    location : "656 6th Avenue, New York, NY 10010",
+    join_agreement : false
+  },
+  {
+    name : "Douglass Mahoney Fitness Center",
+    distance : "2.2 miles",
+    location : "1818 Gebralter Ave, New York, NY 10017",
+    join_agreement : false
+  },
+  {
+    name : "Kevin Nealon Deadlift Emporium",
+    distance : "1.5 miles",
+    location : "44 W Allen Street, New York, Ny 10015",
+    join_agreement : true
+  },
+  {
+    name : "Astor Place Gym and Spa",
+    distance : "2.5 miles",
+    location : "65 Astor Place, New York, NY 10004",
+    join_agreement : false
+  }
+];
+
 
 // Sample Data because of CORS problems
 export const INITIAL_BOOKS = [
