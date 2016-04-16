@@ -58,8 +58,7 @@ class Library extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    books: SAMPLE_BOOKS,
-    neio: "neio"
+    books: state.books.filter(book => book.isHostage),
   }
 };
 

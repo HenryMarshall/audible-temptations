@@ -16,18 +16,16 @@ type Props = {
 
 const FilterLibrary = ({
   books,
-  addHostage,
-  removeHostage
+  toggleHostage,
 }) => {
   return (
     <List>
-      {books.products.map(book => (
+      {books.map(book => (
         <Book 
           book={book}
           key={book.asin}
 
-          addHostage={addHostage}
-          removeHostage={removeHostage}
+          toggleHostage={toggleHostage}
         />
       ))}
     </List>
@@ -36,28 +34,21 @@ const FilterLibrary = ({
 
 const mapStateToProps = (state) => {
   return {
-    books: SAMPLE_BOOKS
+    books: state.books
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addHostages(book) {
+    toggleHostage(asin) {
       dispatch({
-        type: "ADD_HOSTAGES",
-        payload: { book }
-      });
-    },
-
-    removeHostage(book) {
-      dispatch({
-        type: "REMOVE_HOSTAGE",
-        payload: { book }
+        type: "TOGGLE_HOSTAGE",
+        payload: { asin }
       });
     },
   }
 }
-export default connect(mapStateToProps)(FilterLibrary);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterLibrary);
 
 
 // export class FilterLibrary extends React.Component {

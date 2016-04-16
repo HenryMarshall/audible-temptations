@@ -7,8 +7,7 @@ import LockOpen from 'material-ui/lib/svg-icons/action/lock-open';
 
 export default ({
   book,
-  addHostage,
-  removeHostage,
+  toggleHostage,
 }) => {
   const {
     title,
@@ -22,7 +21,7 @@ export default ({
       leftAvatar={
         isHostage ? <Lock color="black" /> : <LockOpen color="c5c5c5" />
       }
-      onClick={isHostage ? removeHostage : addHostage}
+      onClick={() => toggleHostage(book.asin)}
       primaryText={title}
       secondaryText={subtitle}
     >

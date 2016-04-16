@@ -10,7 +10,7 @@ const GridBooks = ({
   return (
     <GridList
     >
-    {books.products.map(book => (
+    {books.map(book => (
       <GridTile
         key={book.asin}
         title={book.title}
