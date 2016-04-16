@@ -10,6 +10,16 @@ class Library extends React.Component {
   constructor(props) {
     super(props);
     this.state = { itemPlaying: null };
+
+    // const firstBook = this.props.books.products[0];
+    // const defaultItemPlaying = [{
+    //   url: firstBook.sample_url,
+    //   artist: {
+    //     song: firstBook.subtitle,
+    //     name: firstBook.title,
+    //   }
+    // }];
+    // this.state = { itemPlaying: defaultItemPlaying };
   }
 
   playSample(book) {
@@ -26,11 +36,13 @@ class Library extends React.Component {
 
   render() {
     const ConditionalPlayer = this.state.itemPlaying
-      ? <CLAudioPlayer songs={this.state.itemPlaying} autoplay />
-      : <div></div>
+    ? <CLAudioPlayer songs={this.state.itemPlaying} autoplay />
+    : <div></div>
+
 
     const boundPlaySample = this.playSample.bind(this);
-    const firstBook = this.props.books.products[0];
+
+    //const ConditionalPlayer = <CLAudioPlayer songs={this.state.itemPlaying} autoplay />
     
     return (
       <div>
@@ -43,7 +55,6 @@ class Library extends React.Component {
     );
   }
 }
-        // <CLAudioPlayer songs={[ { url: firstBook.sample_url, artist: { song: firstBook.subtitle, name: firstBook.title } } ]}/>
 
 const mapStateToProps = (state) => {
   return {
