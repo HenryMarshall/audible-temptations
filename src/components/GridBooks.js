@@ -7,9 +7,9 @@ const GridBooks = ({
   books,
   onClick,
 }) => {
+
   return (
-    <GridList
-    >
+    <GridList >
     {books.map(book => (
       <GridTile
         key={book.asin}

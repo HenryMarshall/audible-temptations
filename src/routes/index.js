@@ -10,8 +10,8 @@ import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 import HomeView from 'views/HomeView/HomeView'
 import Auth from 'views/AuthView/';
 import ManageLocations from 'views/ManageLocationsView';
-import Blackmail from 'views/BlackmailView';
 import FilterLibrary from 'views/FilterLibraryView';
+import Override from 'views/OverrideView';
 import Library from 'views/LibraryView';
 
 export default (store) => (
@@ -19,8 +19,8 @@ export default (store) => (
     <IndexRoute component={Library} />
     <Route path='/auth' component={Auth} />
     <Route path='/manageLocations' component={ManageLocations} />
-    <Route path='/blackmail' component={Blackmail} />
     <Route path='/filterLibrary' component={FilterLibrary} />
+    <Route path='/override' component={Override} />
 
     <Route path='/intro'>
       <IndexRoute component={HomeView} />

@@ -10,16 +10,6 @@ class Library extends React.Component {
   constructor(props) {
     super(props);
     this.state = { itemPlaying: null };
-
-    // const firstBook = this.props.books.products[0];
-    // const defaultItemPlaying = [{
-    //   url: firstBook.sample_url,
-    //   artist: {
-    //     song: firstBook.subtitle,
-    //     name: firstBook.title,
-    //   }
-    // }];
-    // this.state = { itemPlaying: defaultItemPlaying };
   }
 
   playSample(book) {
@@ -39,16 +29,25 @@ class Library extends React.Component {
     ? <CLAudioPlayer songs={this.state.itemPlaying} autoplay />
     : <div></div>
 
-
     const boundPlaySample = this.playSample.bind(this);
 
-    //const ConditionalPlayer = <CLAudioPlayer songs={this.state.itemPlaying} autoplay />
+    const hostages = this.props.books.filter(book => book.isHostage);
+    const nonHostages = this.props.books.filter(book => !book.isHostage);
+
+    const beingNaughty = () => this.props.history.push("/override");
     
     return (
       <div>
+        <h1>Always Available</h1>
         <GridBooks
           onClick={boundPlaySample}
-          books={this.props.books}
+          books={nonHostages}
+        />
+
+        <h1>Hostages</h1>
+        <GridBooks
+          onClick={beingNaughty}
+          books={hostages}
         />
         {ConditionalPlayer}
       </div>
@@ -58,7 +57,7 @@ class Library extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    books: state.books.filter(book => book.isHostage),
+    books: state.books,
   }
 };
 
