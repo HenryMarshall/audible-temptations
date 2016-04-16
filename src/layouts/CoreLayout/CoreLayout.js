@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import PageChrome from '../PageChrome.js';
+import PageChrome from '../../components/PageChrome';
 
 import '../../styles/reset.css';
 

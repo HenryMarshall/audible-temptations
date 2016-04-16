@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux';
 import CLAudioPlayer from 'react-cl-audio-player';
 
+import Toolbar from 'material-ui/lib/toolbar/toolbar';
+import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 import GridBooks from '../../components/GridBooks';
 import { SAMPLE_BOOKS } from '../../constants.js';
 
@@ -10,16 +12,6 @@ class Library extends React.Component {
   constructor(props) {
     super(props);
     this.state = { itemPlaying: null };
-
-    // const firstBook = this.props.books.products[0];
-    // const defaultItemPlaying = [{
-    //   url: firstBook.sample_url,
-    //   artist: {
-    //     song: firstBook.subtitle,
-    //     name: firstBook.title,
-    //   }
-    // }];
-    // this.state = { itemPlaying: defaultItemPlaying };
   }
 
   playSample(book) {
@@ -39,16 +31,25 @@ class Library extends React.Component {
     ? <CLAudioPlayer songs={this.state.itemPlaying} autoplay />
     : <div></div>
 
-
     const boundPlaySample = this.playSample.bind(this);
 
-    //const ConditionalPlayer = <CLAudioPlayer songs={this.state.itemPlaying} autoplay />
+    const hostages = this.props.books.filter(book => book.isHostage);
+    const nonHostages = this.props.books.filter(book => !book.isHostage);
+
+    const beingNaughty = () => this.props.history.push("/override");
     
     return (
       <div>
+        <Toolbar><ToolbarTitle text="Always Available"/></Toolbar>
         <GridBooks
           onClick={boundPlaySample}
-          books={this.props.books}
+          books={nonHostages}
+        />
+
+        <Toolbar><ToolbarTitle text="Hostages"/></Toolbar>
+        <GridBooks
+          onClick={beingNaughty}
+          books={hostages}
         />
         {ConditionalPlayer}
       </div>
@@ -58,8 +59,7 @@ class Library extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    books: SAMPLE_BOOKS,
-    neio: "neio"
+    books: state.books,
   }
 };
 

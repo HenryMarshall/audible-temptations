@@ -7,6 +7,8 @@ import {
 } from '../../constants';
 
 import List from 'material-ui/lib/lists/list';
+import { Link } from 'react-router';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 import Book from '../../components/Book/Book';
 
@@ -15,28 +17,61 @@ type Props = {
 };
 
 const FilterLibrary = ({
-  books
+  books,
+  toggleHostage,
 }) => {
   return (
     <List>
-      {books.products.map(book => (
+      {books.map(book => (
         <Book 
+          book={book}
           key={book.asin}
-          title={book.title}
-          subtitle={book.subtitle}
-          image={book.product_images["500"]}
+
+          toggleHostage={toggleHostage}
         />
       ))}
+      <div 
+        style={{ 
+          position: "fixed",
+          bottom: 16,
+          left: 16,
+          right: 16,
+          zIndex: 3
+        }}
+      >
+        <RaisedButton
+          containerElement={<Link to="/library"/>}
+          linkButton={true}
+          fullWidth={true}
+          label="Continue"
+          style={{
+            backgroundColor: "#F7991F",
+            textAlign: "center"
+            //margin: "auto 16px 16px 16px"
+          }}
+        />
+      </div>
     </List>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-    books: SAMPLE_BOOKS
+    books: state.books
   }
 };
-export default connect(mapStateToProps)(FilterLibrary);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleHostage(asin) {
+      dispatch({
+        type: "TOGGLE_HOSTAGE",
+        payload: { asin }
+      });
+    },
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(FilterLibrary);
 
 
 // export class FilterLibrary extends React.Component {

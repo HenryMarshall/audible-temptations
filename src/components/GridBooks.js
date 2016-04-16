@@ -7,14 +7,13 @@ const GridBooks = ({
   books,
   onClick,
 }) => {
+
   return (
-    <GridList
-    >
-    {books.products.map(book => (
+    <GridList >
+    {books.map(book => (
       <GridTile
         key={book.asin}
         title={book.title}
-        style={{ marginTop: 10 }}
         onClick={() => onClick(book)}
       >
         <img src={book.product_images["500"]}/>

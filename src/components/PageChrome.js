@@ -22,6 +22,7 @@ class PageChrome extends React.Component {
         <AppBar 
           title="Audible Temptations"
           onLeftIconButtonTouchTap={this.handleToggle}
+          style={{ backgroundColor: "#F7991F" }}
         />
         <LeftNav
           docked={false}
@@ -31,6 +32,10 @@ class PageChrome extends React.Component {
           closeOnItemTouchTap={true}
         >
           <Link to="/" style={styles.link} >
+            <MenuItem onTouchTap={this.handleClose} primaryText="Intro" />
+          </Link>
+
+          <Link to="/library" style={styles.link} >
             <MenuItem onTouchTap={this.handleClose} primaryText="Library" />
           </Link>
 
@@ -41,10 +46,7 @@ class PageChrome extends React.Component {
           <Link to="/manageLocations" style={styles.link} >
             <MenuItem onTouchTap={this.handleClose} primaryText="Choose Gym" />
           </Link>
-          
-          <Link to="/recommendations" style={styles.link} >
-            <MenuItem onTouchTap={this.handleClose} primaryText="Recommendations" />
-          </Link>
+
         </LeftNav>
       </div>
     )
