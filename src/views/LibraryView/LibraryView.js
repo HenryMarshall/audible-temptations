@@ -16,6 +16,7 @@ class Library extends React.Component {
 
   playSample(book) {
     console.log("in playSample");
+    this.setState({ itemPlaying: null })
     const itemPlaying = [{
       url: book.sample_url,
       artist: {
@@ -37,7 +38,11 @@ class Library extends React.Component {
     const nonHostages = this.props.books.filter(book => !book.isHostage);
 
     const beingNaughty = () => this.props.history.push("/override");
-    
+
+    const conditionalHostageHeader = (hostages.length === 0)
+      ? <div></div>
+      : <Toolbar><ToolbarTitle text="Hostages"/></Toolbar>;
+
     return (
       <div>
         <Toolbar><ToolbarTitle text="Always Available"/></Toolbar>
@@ -46,7 +51,7 @@ class Library extends React.Component {
           books={nonHostages}
         />
 
-        <Toolbar><ToolbarTitle text="Hostages"/></Toolbar>
+        {conditionalHostageHeader}
         <GridBooks
           onClick={beingNaughty}
           books={hostages}

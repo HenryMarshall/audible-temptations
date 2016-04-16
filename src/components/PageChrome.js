@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import AppBar from 'material-ui/lib/app-bar';
@@ -20,7 +21,7 @@ class PageChrome extends React.Component {
     return(
       <div>
         <AppBar 
-          title="Audible Temptations"
+          title={this.props.title}
           onLeftIconButtonTouchTap={this.handleToggle}
           style={{ backgroundColor: "#F7991F" }}
         />
@@ -60,4 +61,25 @@ const styles = {
   }
 }
 
-export default PageChrome;
+const mapStateToProps = (state) => {
+  const path = state.router.locationBeforeTransitions.pathname;
+  return {
+    title: pathToTitle(path)
+  }
+}
+
+function pathToTitle(path) {
+  switch (path) {
+    case "/library":
+      return "Your Library";
+    case "/manageLocations":
+      return "Choose Gym";
+    case "/filterLibrary":
+      return "Choose Hostages";
+    case "/override":
+      return "Override Lock";
+    default:
+      return "Audible Temptations";
+  }
+}
+export default connect(mapStateToProps)(PageChrome);
