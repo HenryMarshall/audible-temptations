@@ -19,6 +19,7 @@ export class ManageLocations extends React.Component {
         <List>
           {GYMS.map(gym => (
             <Link 
+              key={gym.name}
               to="/filterLibrary" 
               style={{textDecoration: "none", color: "black"}}
             >

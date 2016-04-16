@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 type Props = {
@@ -9,7 +10,11 @@ export class Override extends React.Component {
 
   render() {
     return (
-      <div>Override</div>
+      <div>
+        <Link to="/library">
+          <img src="/override.png" style={{marginTop: "-110px"}}/>
+        </Link>
+      </div>
     )
   }
 }

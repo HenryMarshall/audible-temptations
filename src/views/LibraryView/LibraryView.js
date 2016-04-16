@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux';
 import CLAudioPlayer from 'react-cl-audio-player';
 
+import Toolbar from 'material-ui/lib/toolbar/toolbar';
+import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 import GridBooks from '../../components/GridBooks';
 import { SAMPLE_BOOKS } from '../../constants.js';
 
@@ -38,13 +40,13 @@ class Library extends React.Component {
     
     return (
       <div>
-        <h1>Always Available</h1>
+        <Toolbar><ToolbarTitle text="Always Available"/></Toolbar>
         <GridBooks
           onClick={boundPlaySample}
           books={nonHostages}
         />
 
-        <h1>Hostages</h1>
+        <Toolbar><ToolbarTitle text="Hostages"/></Toolbar>
         <GridBooks
           onClick={beingNaughty}
           books={hostages}

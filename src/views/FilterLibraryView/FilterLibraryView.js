@@ -7,6 +7,8 @@ import {
 } from '../../constants';
 
 import List from 'material-ui/lib/lists/list';
+import { Link } from 'react-router';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 import Book from '../../components/Book/Book';
 
@@ -28,6 +30,27 @@ const FilterLibrary = ({
           toggleHostage={toggleHostage}
         />
       ))}
+      <div 
+        style={{ 
+          position: "fixed",
+          bottom: 16,
+          left: 16,
+          right: 16,
+          zIndex: 3
+        }}
+      >
+        <RaisedButton
+          containerElement={<Link to="/library"/>}
+          linkButton={true}
+          fullWidth={true}
+          label="Continue"
+          style={{
+            backgroundColor: "#F7991F",
+            textAlign: "center"
+            //margin: "auto 16px 16px 16px"
+          }}
+        />
+      </div>
     </List>
   );
 }

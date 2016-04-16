@@ -14,7 +14,6 @@ const GridBooks = ({
       <GridTile
         key={book.asin}
         title={book.title}
-        style={{ marginTop: 10 }}
         onClick={() => onClick(book)}
       >
         <img src={book.product_images["500"]}/>
